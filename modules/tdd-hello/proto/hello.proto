@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package hello;
+
+// 选项：指定 Go 包路径
+option go_package = "github.com/example/tdd-hello/pb";
+
+// TODO 步骤 1：定义服务接口
+// 完成后测试：test (proto 文件语法检查)
+service Greeter {
+  // SayHello 是最基本的 unary RPC 方法
+  // 请求：HelloRequest { name }
+  // 响应：HelloReply { message }
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
+
+// 请求消息
+message HelloRequest {
+  string name = 1; // 需要问候的用户名
+}
+
+// 响应消息
+message HelloReply {
+  string message = 1; // 问候语
+}
+
+// TODO 步骤详细说明：
+// 1. 这个 proto 文件定义了最基本的 gRPC 服务
+// 2. 服务 Greeter 只有一个方法 SayHello
+// 3. 请求包含一个字符串字段 name
+// 4. 响应包含一个字符串字段 message
+// 5. 使用 go_package 选项指定生成的 Go 代码的包路径
