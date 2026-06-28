@@ -31,3 +31,6 @@ go.work.sum
 # .idea/
 # .vscode/
 hello-world/helloworld/*.pb.go
+
+grpc-go-1.81.1/*
+!grpc-go-1.81.1/placeholder
